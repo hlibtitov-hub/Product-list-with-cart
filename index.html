@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet" />
+    <style>
+      .selected {
+        border: 2px solid #f87171; /* red-400 */
+        box-shadow: 0 0 0 2px #fecaca; /* имитация ring-red-400 */
+      }
+    </style>
+  </head>
+  <body class="bg-[#FFFFF0] font-sans">
+    <div class="container mx-auto py-4 px-4 flex flex-col md:flex-row gap-6">
+      <div class="flex-1">
+        <h1 class="text-3xl text-left text-black font-bold mb-12">Desserts</h1>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-16">
+          <!-- Left side (iteams) -->
+          <!-- Dessert Item 1 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-waffle-desktop.jpg"
+              alt="Classic Tiramisu"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Wafffle with Berries
+              </h3>
+              <p class="text-gray-600 text-sm">$6.50</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black text-sm md:text-base font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Wafffle with Berries"
+                data-price="6.50"
+                data-image="./images/image-waffle-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 2 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-creme-brulee-desktop.jpg"
+              alt="Baklava"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Vanilla Bean Crème Brulee
+              </h3>
+              <p class="text-gray-600 text-sm">$7.00</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Vanilla Bean Crème Brulee"
+                data-price="7.00"
+                data-image="./images/image-creme-brulee-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 3 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-macaron-desktop.jpg"
+              alt="Vanilla Bean Crème brûlée"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Maccaron Mix of Five
+              </h3>
+              <p class="text-gray-600 text-sm">$8.00</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Maccaron Mix of Five"
+                data-price="8.00"
+                data-image="./images/image-macaron-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 4 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-tiramisu-desktop.jpg"
+              alt="Macaron Mix of Five"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Classic Tiramisu
+              </h3>
+              <p class="text-gray-600 text-sm">$5.50</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Classic Tiramisu"
+                data-price="5.50"
+                data-image="./images/image-tiramisu-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 5 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-baklava-desktop.jpg"
+              alt="Classic Tiramisu"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Pistachio Baklava
+              </h3>
+              <p class="text-gray-600 text-sm">$5.00</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Pistachio Baklava"
+                data-price="5.00"
+                data-image="./images/image-baklava-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 6 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-meringue-desktop.jpg"
+              alt="Lemon Merigue Pie"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Lemon Merigue Pie
+              </h3>
+              <p class="text-gray-600 text-sm">$5.00</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Lemon Merigue Pie"
+                data-price="5.00"
+                data-image="./images/image-meringue-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 7 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-cake-desktop.jpg"
+              alt="Lemon Merigue Pie"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Red Velvet Cake
+              </h3>
+              <p class="text-gray-600 text-sm">$4.50</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name=" Red Velvet Cake"
+                data-price="4.50"
+                data-image="./images/image-cake-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 8 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-brownie-desktop.jpg"
+              alt="Lemon Merigue Pie"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Salted Caramel Brownie
+              </h3>
+              <p class="text-gray-600 text-sm">$5.50</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Salted Caramel Brownie"
+                data-price="5.50"
+                data-image="./images/image-brownie-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Dessert Item 9 -->
+          <div
+            class="dessert-card bg-white shadow-lg rounded-lg overflow-hidden border border-transparent hover:border-red-500 transition duration-200">
+            <img
+              src="./images/image-panna-cotta-desktop.jpg"
+              alt="Lemon Meringue Pie"
+              class="w-full aspect-square object-cover" />
+            <div class="p-4">
+              <h3 class="text-xl font-semibold text-gray-800">
+                Vanilla Panna Cotta
+              </h3>
+              <p class="text-gray-600 text-sm">$6.50</p>
+            </div>
+            <!-- Кнопка Add to Cart снаружи карточки -->
+            <div class="mt-4">
+              <button
+                class="bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 rounded-full flex items-center gap-2 border border-black hover:border-red-500 hover:text-red-500 w-full"
+                data-name="Vanilla Panna Cotta"
+                data-price="6.50"
+                data-image="./images/image-panna-cotta-desktop.jpg"
+                onclick="addToCart(this)">
+                <img
+                  src="./images/icon-add-to-cart.svg"
+                  alt="card"
+                  class="card-icon" />Add to Cart
+              </button>
+              <!-- Счётчик (скрыт) -->
+              <div
+                class="counter hidden flex items-center justify-between border rounded-full overflow-hidden mt-2">
+                <button onclick="decrease(this)" class="px-4 py-1 text-lg">
+                  −
+                </button>
+                <span class="px-4">1</span>
+                <button onclick="increase(this)" class="px-4 py-1 text-lg">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right site  -->
+      <!-- Confirm order -->
+      <div class="w-80 sticky top-8 self-start">
+        <div class="p-4 bg-white rounded-md shadow">
+          <p id="cart-count" class="text-gray-700">
+            <strong class="text-xl font-bold">Your Cart (0):</strong>
+          </p>
+          <ul id="cart-items" class="text-gray-700 mb-2">
+            <!-- Здесь будут товары: название × количество — цена -->
+          </ul>
+          <p id="cart-total" class="text-gray-700">Order total: $0.00</p>
+          <button
+            onclick="openModal()"
+            class="bg-white text-orange-500 border border-orange-500 hover:bg-orange-500 hover:text-white font-semibold py-2 px-4 rounded-lg w-full mt-4 transition-colors duration-200">
+            Confirm order
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+    <!-- 🪟 Модальное окно -->
+    <div
+      id="order-modal"
+      class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center">
+      <div class="bg-white p-6 rounded-lg w-96 shadow-lg">
+        <h2 class="text-xl font-bold mb-4">Your Order</h2>
+
+        <ul id="modal-items" class="mb-4 text-gray-700"></ul>
+
+        <p id="modal-total" class="font-semibold mb-4"></p>
+
+        <div class="flex justify-end gap-2">
+          <button onclick="closeModal()" class="px-4 py-2 bg-gray-300 rounded">
+            Cancel
+          </button>
+          <button class="px-4 py-2 bg-green-500 text-white rounded">
+            Confirm
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
